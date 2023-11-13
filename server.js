@@ -19,8 +19,8 @@ const server = http.createServer(app);
 // app.use(express.urlencoded({ limit: "500mb", extended: true }));
 
 app.get("/", (req, res) => {
-  res.json({messge:"hello wolrd",success:true})
-  // res.sendFile(path.resolve(__dirname, "client", "index.html"));
+  // res.json({messge:"hello wolrd",success:true})
+  res.sendFile(path.resolve(__dirname, "client", "index.html"));
 });
 
 app.get("/hello", (req, res) => {
