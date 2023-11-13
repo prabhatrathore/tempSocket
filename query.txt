@@ -1,0 +1,6 @@
+-------avinash-----------
+ALTER TABLE `users` ADD `user_type` varchar(20) COLLATE 'utf8mb4_unicode_ci' NULL AFTER `type`;
+UPDATE `users` SET `user_type` = 'super_admin' WHERE `id` = '1';
+UPDATE `users` SET `password` = 'd8e54a435a933c0f09cc5300d106a2db' WHERE `id` = '1';
+UPDATE `users` SET `email_verified_at` = '2023-09-14 05:05:20' WHERE `id` = '1';
+-------avinash-----------
