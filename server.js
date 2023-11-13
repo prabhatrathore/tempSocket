@@ -5,21 +5,22 @@ const http = require("http");
 const path = require("path");
 const orderBookRoutes = require("./routes/orderBookRoutes");
 const { getORderPendingBookData } = require("./controllers/orderBookController");
-const socketIoLogic = require("./helper/socketio");
+// const socketIoLogic = require("./helper/socketio");
 
 const app = express();
-const port = process.env.ENDPOINT_PORT || 5001;
+const port = 5001;
 
 const server = http.createServer(app);
-socketIoLogic(server);
+// socketIoLogic(server);
 
-app.use(bodyParser.urlencoded({ extended: true }));
-app.use(bodyParser.json());
-app.use(express.json({ limit: "500mb" }));
-app.use(express.urlencoded({ limit: "500mb", extended: true }));
+// app.use(bodyParser.urlencoded({ extended: true }));
+// app.use(bodyParser.json());
+// app.use(express.json({ limit: "500mb" }));
+// app.use(express.urlencoded({ limit: "500mb", extended: true }));
 
 app.get("/", (req, res) => {
-  res.sendFile(path.resolve(__dirname, "client", "index.html"));
+  res.json({messge:"hello wolrd",success:true})
+  // res.sendFile(path.resolve(__dirname, "client", "index.html"));
 });
 
 app.get("/hello", (req, res) => {
@@ -27,7 +28,7 @@ app.get("/hello", (req, res) => {
 });
 
 app.use(express.static(path.resolve(__dirname, "client")));
-app.use("/orderBook", orderBookRoutes);
+// app.use("/orderBook", orderBookRoutes);
 
 server.listen(port, async () => {
   console.log(`Server is listening on port ${port}`);
