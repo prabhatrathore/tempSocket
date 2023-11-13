@@ -6,33 +6,41 @@
   <body>
     <h1>Socket io xample</h1>
     <div id="messages"></div>
+
+    <button id="alertbtn">alert  button</button>
     <button id="sendbtn">send 112885</button>
     <button id="unsubscribe">unsubscribe 112885</button>
     <button id="sendbtn2">send 107053</button>
     <script src="/socket.io/socket.io.js"></script>
     <script>
-      const socket = io();
+      // const socket = io();
       const button = document.getElementById("sendbtn");
+      const alertbtn= document.getElementById("alertbtn");
       const unsubscribeButton = document.getElementById("unsubscribe");
       const button2 = document.getElementById("sendbtn2");
       const messageData = document.getElementById("message");
       let tokenSubscribe = "";
 
+      alertbtn.addEventListener("click", (e) => {
+        tokenSubscribe = "112885";
+        console.log(tokenSubscribe, "=e3223");
+        // socket.emit("tokenData", tokenSubscribe);
+      });
       button.addEventListener("click", (e) => {
         tokenSubscribe = "112885";
         console.log(tokenSubscribe, "=e3223");
-        socket.emit("tokenData", tokenSubscribe);
+        // socket.emit("tokenData", tokenSubscribe);
       });
       button2.addEventListener("click", (e) => {
         const message = "107053";
-        socket.emit("tokenDataGet", message);
+        // socket.emit("tokenDataGet", message);
       });
       socket.on("room-"+tokenSubscribe, (data) => {
         console.log(data, "112885/unique");
       });
       
       unsubscribeButton.addEventListener("click", (e) => {
-        socket.emit("unsubscribe", tokenSubscribe);
+        // socket.emit("unsubscribe", tokenSubscribe);
       });
       // socket.on("roomone" + tokenSubscribe, (data) => {
       //   console.log(data, "112885/unique");
