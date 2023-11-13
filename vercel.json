@@ -1,0 +1,6 @@
+{
+    "version":2,
+    "name":"vmycards_node",
+    "builds":[{"src":"Server.js","use":"@vercel/node"}],
+    "routes":[{"src":"/(.*)","dest":"/server.js"}]
+}

@@ -26,10 +26,10 @@ fs.readFile('instrumentObject.json', 'utf8', (err, data) => {
 })
 let pingpongInterval;
 
-let tokenDATaFromCLient = {};
+let tokenDATaFromCLient2 = {};
 console.log(instrumentsList, "Ppppppppppppppppppppppppppppppppppp")
 
-function wsConnect(io, tokenChunk) {
+export function wsConnect(io, tokenChunk) {
   let connectionCount = 0;
   const ws = new WebSocket(
     "wss://stream.globalmarketcap.org/socket/?access_token=r3am628r3a2d23v6a28nsf19am3u8nd8"
@@ -108,7 +108,7 @@ function wsConnect(io, tokenChunk) {
   });
 }
 
-exports.fetchData = async (io) => {
+export const fetchData = async (io) => {
   try {
     const chunkSize = 800;
     const instrumentsListFetch = []
@@ -220,5 +220,5 @@ async function fetchtokenAll() {
 
 }
 // fetchtokenAll()
-exports.getResultObject = () => resultObject;
-exports.tokenDATaFromCLient = () => tokenDATaFromCLient;
+export const getResultObject = () => resultObject;
+export const  tokenDATaFromCLient = () => tokenDATaFromCLient2;
